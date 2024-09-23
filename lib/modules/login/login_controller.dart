@@ -7,33 +7,29 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-class LoginController extends BaseController with GetSingleTickerProviderStateMixin {
+class LoginController extends BaseController
+    with GetSingleTickerProviderStateMixin {
   final formKey = GlobalKey<FormState>();
 
   // late final AnimationController controller;
-  String email = '', password = '';
+  String Name = '', password = '';
 
   RxBool showPassword = false.obs;
 
   final provider = Get.find<AuthProvider>();
 
-
   void login() {
     if (!formKey.currentState!.validate()) return;
     showLoader();
-    provider.login(email, password).then((User? user) {
-      if(user != null){
+    provider.login(Name, password).then((User? user) {
+      if (user != null) {
         final box = GetStorage();
         Constants.user = user;
         Constants.token = user.authToken;
-        box.write('user', user.toJson());
+        box.write('name', user.toJson());
         box.write('token', user.authToken);
         Get.offAllNamed(Routes.home);
       }
-
-
     }).whenComplete(hideLoader);
   }
-
-
 }

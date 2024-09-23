@@ -33,7 +33,6 @@ class Login extends GetView<LoginController> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-
                     Text(
                       "mover",
                       style: Get.textTheme.displaySmall!.copyWith(
@@ -46,36 +45,15 @@ class Login extends GetView<LoginController> {
                     ),
                   ],
                 ),
-                vPad48,
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Welcome back!",
-                    style: Get.textTheme.displaySmall!.copyWith(
-                        color: Colors.black87, fontWeight: FontWeight.w700),
-                  ),
-                ),
-                vPad4,
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Please enter all your details",
-                    style: Get.textTheme.bodySmall!
-                        .copyWith(color: ColorName.gray8),
-                  ),
-                ),
                 vPad36,
                 TextInputField(
                   height: 48,
                   textInputType: TextInputType.emailAddress,
                   autofillHints: const [AutofillHints.email],
-                  prefixIcon: const Icon(
-                    Icons.alternate_email_rounded,
-                    color: Colors.grey,
-                  ),
-                  label: 'Username',
+
+                  label: 'Enter Device Name',
                   onChanged: (String s) {
-                    controller.email = s;
+                    controller.Name = s;
                   },
                   // validator: emailValidatorNotEmpty,
                 ),
@@ -87,10 +65,6 @@ class Login extends GetView<LoginController> {
                     autofillHints: const [AutofillHints.password],
                     textInputType: TextInputType.visiblePassword,
                     obscureText: !controller.showPassword.value,
-                    prefixIcon: const Icon(
-                      Icons.key_outlined,
-                      color: Colors.grey,
-                    ),
                     suffixIcon: IconButton(
                       highlightColor: Colors.transparent,
                       padding: const EdgeInsets.all(0),

@@ -1,13 +1,7 @@
 import 'package:crew_app/gen/assets.gen.dart';
 import 'package:crew_app/gen/colors.gen.dart';
-
-import 'package:crew_app/modules/dashboard/dashboard_controller.dart';
-import 'package:crew_app/routes/app_pages.dart';
-
 import 'package:crew_app/widgets/bottombar.dart';
-
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 class Dashboard extends GetView {
@@ -51,7 +45,7 @@ class Dashboard extends GetView {
                         size: 24,
                       ),
                       onPressed: () {
-                        // Get.to(() => const NotificationScreen());
+                        //  Get.to(() => const Notification());
                       },
                     ),
                   ],
