@@ -83,9 +83,16 @@ class $AssetsImagesGen {
   AssetGenImage get profileHead =>
       const AssetGenImage('assets/images/profile_head.png');
 
+  /// File path: assets/images/BG.png
+  AssetGenImage get bg => const AssetGenImage('assets/images/BG.png');
+
+  /// File path: assets/images/head_logo.png
+  AssetGenImage get HeadLogo =>
+      const AssetGenImage('assets/images/head_logo.png');
+
   /// List of all assets
   List<AssetGenImage> get values =>
-      [frame, androidBranding, androidLogo, logo, profileHead];
+      [frame, androidBranding, androidLogo, logo, profileHead, bg, HeadLogo];
 }
 
 class $AssetsLottiesGen {
