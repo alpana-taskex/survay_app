@@ -1,7 +1,6 @@
 import 'package:crew_app/components/button_input.dart';
 import 'package:crew_app/components/custom_input_widgets.dart';
 import 'package:crew_app/components/frequent_widgets.dart';
-import 'package:crew_app/gen/assets.gen.dart';
 import 'package:crew_app/gen/colors.gen.dart';
 import 'package:crew_app/modules/login/login_controller.dart';
 import 'package:crew_app/routes/app_pages.dart';
@@ -13,10 +12,17 @@ class Login extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
+    // Get screen width and height using MediaQuery
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       body: Padding(
-        padding: const EdgeInsets.all(32),
+        padding: EdgeInsets.symmetric(
+          horizontal: screenWidth * 0.08,
+          vertical: screenHeight * 0.12,
+        ),
         child: Form(
           key: controller.formKey,
           child: AutofillGroup(
@@ -24,40 +30,44 @@ class Login extends GetView<LoginController> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Spacer(
-                  flex: 1,
-                ),
-                Assets.svgs.logo.svg(height: 72),
-                vPad16,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    Image.asset(
+                      'assets/images/logo.png',
+                      height: 72,
+                    ),
+                    hPad12,
                     Text(
                       "mover",
-                      style: Get.textTheme.displaySmall!.copyWith(
-                          color: Colors.black87, fontWeight: FontWeight.w400),
+                      style: Get.textTheme.displayMedium?.copyWith(
+                            color: Colors.black87,
+                            fontWeight: FontWeight.w400,
+                          ) ??
+                          const TextStyle(),
                     ),
                     Text(
                       "mate",
-                      style: Get.textTheme.displaySmall!.copyWith(
-                          color: Colors.black87, fontWeight: FontWeight.w600),
+                      style: Get.textTheme.displayMedium?.copyWith(
+                            color: Colors.black87,
+                            fontWeight: FontWeight.w600,
+                          ) ??
+                          const TextStyle(),
                     ),
                   ],
                 ),
-                vPad36,
+                vPad48,
                 TextInputField(
                   height: 48,
                   textInputType: TextInputType.emailAddress,
                   autofillHints: const [AutofillHints.email],
-
                   label: 'Enter Device Name',
                   onChanged: (String s) {
                     controller.Name = s;
                   },
                   // validator: emailValidatorNotEmpty,
                 ),
-                vPad16,
+                vPad24,
                 Obx(
                   () => TextInputField(
                     height: 48,
@@ -100,14 +110,15 @@ class Login extends GetView<LoginController> {
                     style: const ButtonStyle(
                       overlayColor: WidgetStatePropertyAll(
                         Colors.transparent,
-                      ), // Removes the splash effect
+                      ),
                     ),
                     child: Text(
                       "Forgot Password?",
                       style: Get.textTheme.titleMedium!.copyWith(
-                          fontSize: 14,
-                          color: ColorName.gray5,
-                          fontWeight: FontWeight.w500),
+                        fontSize: 14,
+                        color: ColorName.gray5,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ),
@@ -116,7 +127,7 @@ class Login extends GetView<LoginController> {
                   () => InputButton(
                     isLoading: controller.isLoading.value,
                     onPressed: controller.login,
-                    label: 'Get Started',
+                    label: 'Sign In',
                   ),
                 ),
                 const Spacer(
@@ -129,6 +140,8 @@ class Login extends GetView<LoginController> {
       ),
     );
   }
+}
+
 
 /*InkWell(
                       child: Lottie.asset(
@@ -147,4 +160,4 @@ class Login extends GetView<LoginController> {
 
                       },
                     ),*/
-}
+
