@@ -7,8 +7,6 @@ import 'package:crew_app/binding/faq_binding.dart';
 import 'package:crew_app/binding/forgot_binding.dart';
 import 'package:crew_app/binding/google_login_binding.dart';
 import 'package:crew_app/binding/help_binding.dart';
-
-import 'package:crew_app/binding/item_detail_binding.dart';
 import 'package:crew_app/binding/language_binding.dart';
 import 'package:crew_app/binding/message_binding.dart';
 import 'package:crew_app/binding/notification_binding.dart';
@@ -24,7 +22,6 @@ import 'package:crew_app/modules/dashboard/dashboard.dart';
 import 'package:crew_app/modules/faq/faq.dart';
 import 'package:crew_app/modules/forgot/forgot.dart';
 import 'package:crew_app/modules/help/help.dart';
-import 'package:crew_app/modules/invoice/item_detail_screen.dart';
 import 'package:crew_app/modules/language/language.dart';
 import 'package:crew_app/modules/login/login.dart';
 import 'package:crew_app/modules/message/message.dart';
@@ -97,11 +94,6 @@ class AppPages {
         page: () => const AvailabilityScreen(),
         binding: AvailabilityBinding(),
         middlewares: [AuthMiddleware()]),
-    GetPage(
-      name: Routes.itemDetail,
-      page: () => const ItemDetailScreen(),
-      binding: ItemDetailBinding(),
-    ),
     GetPage(
         name: Routes.profile,
         page: () => const Profile(),
