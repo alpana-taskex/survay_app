@@ -57,9 +57,12 @@ class BottomBarState extends State<BottomBar> {
                   'Home',
                   style: TextStyle(
                       fontSize: 12,
-                      fontWeight: Constants.tabSelected == 'home' ? FontWeight.w600:FontWeight.w500,
-
-                      color: Constants.tabSelected == 'home' ? ColorName.blue3 : ColorName.gray6),
+                      fontWeight: Constants.tabSelected == 'home'
+                          ? FontWeight.w600
+                          : FontWeight.w500,
+                      color: Constants.tabSelected == 'home'
+                          ? ColorName.blue3
+                          : ColorName.gray6),
                 )
               ],
             ),
@@ -83,35 +86,12 @@ class BottomBarState extends State<BottomBar> {
                   'Calendar',
                   style: TextStyle(
                       fontSize: 12,
-                      fontWeight: Constants.tabSelected == 'calendar' ? FontWeight.w600:FontWeight.w500,
-
-                      color: Constants.tabSelected == 'calendar' ? ColorName.blue3 : ColorName.gray6),
-                )
-              ],
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              if (Constants.tabSelected != 'wallet') {
-                Get.offNamed(Routes.wallet);
-                Constants.tabSelected = 'wallet';
-              }
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Constants.tabSelected == 'wallet'
-                    ? Assets.svgs.iconWallet.svg(colorFilter: activeColor)
-                    : Assets.svgs.iconWallet.svg(),
-                vPad8,
-                Text(
-                  'Wallet',
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: Constants.tabSelected == 'wallet' ? FontWeight.w600:FontWeight.w500,
-
-                      color: Constants.tabSelected == 'wallet' ? ColorName.blue3 : ColorName.gray6),
+                      fontWeight: Constants.tabSelected == 'calendar'
+                          ? FontWeight.w600
+                          : FontWeight.w500,
+                      color: Constants.tabSelected == 'calendar'
+                          ? ColorName.blue3
+                          : ColorName.gray6),
                 )
               ],
             ),
@@ -135,34 +115,41 @@ class BottomBarState extends State<BottomBar> {
                   'Messages',
                   style: TextStyle(
                       fontSize: 12,
-                      fontWeight: Constants.tabSelected == 'messages' ? FontWeight.w600:FontWeight.w500,
-
-                      color: Constants.tabSelected == 'messages' ? ColorName.blue3 : ColorName.gray6),
+                      fontWeight: Constants.tabSelected == 'messages'
+                          ? FontWeight.w600
+                          : FontWeight.w500,
+                      color: Constants.tabSelected == 'messages'
+                          ? ColorName.blue3
+                          : ColorName.gray6),
                 )
               ],
             ),
           ),
           InkWell(
             onTap: () {
-              if (Constants.tabSelected != 'account') {
+              if (Constants.tabSelected != 'Profile') {
                 Get.offNamed(Routes.account);
-                Constants.tabSelected = 'account';
+                Constants.tabSelected = 'Profile';
               }
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Constants.tabSelected == 'account'
+                Constants.tabSelected == 'Profile'
                     ? Assets.svgs.iconPerson.svg(colorFilter: activeColor)
                     : Assets.svgs.iconPerson.svg(),
                 vPad8,
                 Text(
-                  'Account',
+                  'Profile',
                   style: TextStyle(
                       fontSize: 12,
-                      fontWeight: Constants.tabSelected == 'account' ? FontWeight.w600:FontWeight.w500,
-                      color: Constants.tabSelected == 'account' ? ColorName.blue3 : ColorName.gray6),
+                      fontWeight: Constants.tabSelected == 'Profile'
+                          ? FontWeight.w600
+                          : FontWeight.w500,
+                      color: Constants.tabSelected == 'Profile'
+                          ? ColorName.blue3
+                          : ColorName.gray6),
                 )
               ],
             ),
