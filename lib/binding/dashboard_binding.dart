@@ -6,6 +6,6 @@ class DashboardBinding implements Bindings {
   @override
   void dependencies() async {
     // Get.lazyPut(() => DashboardController());
-    Get.lazyPut(() => DashboardProvider());
+    // Get.lazyPut(() => DashboardProvider());
   }
 }

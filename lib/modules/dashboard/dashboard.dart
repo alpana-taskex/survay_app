@@ -10,7 +10,7 @@ class Dashboard extends GetView {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2, // Number of tabs (My Surveys and All Leads)
+      length: 2,
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(120),
@@ -18,10 +18,9 @@ class Dashboard extends GetView {
             automaticallyImplyLeading: false,
             flexibleSpace: Container(
               decoration: BoxDecoration(
-                color: ColorName.blue1, // Match the blue background color
+                color: ColorName.blue1,
                 image: DecorationImage(
-                  image: AssetImage(
-                      Assets.images.bg.path), // Optional background image
+                  image: AssetImage(Assets.images.bg.path),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -52,9 +51,7 @@ class Dashboard extends GetView {
                             color: Colors.white,
                             size: 24,
                           ),
-                          onPressed: () {
-                            // Handle notification button press
-                          },
+                          onPressed: () {},
                         ),
                       ],
                     ),
@@ -71,7 +68,6 @@ class Dashboard extends GetView {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 16),
-                // Search bar and add button row
                 Row(
                   children: [
                     Expanded(
@@ -114,11 +110,10 @@ class Dashboard extends GetView {
                   ],
                 ),
                 const SizedBox(height: 24),
-
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                   child: TabBar(
                     labelColor: Colors.blue,
@@ -133,13 +128,11 @@ class Dashboard extends GetView {
                   ),
                 ),
                 const SizedBox(height: 16),
-                // TabBarView to display content based on selected tab
                 const Expanded(
                   child: TabBarView(
                     children: [
-                      Center(
-                          child: Text('My Surveys Content')), // Tab 1 content
-                      Center(child: Text('All Leads Content')), // Tab 2 content
+                      Center(child: Text('My Surveys Content')),
+                      Center(child: Text('All Leads Content')),
                     ],
                   ),
                 ),

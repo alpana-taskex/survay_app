@@ -1,18 +1,15 @@
+// import 'package:flutter/material.dart';
+// import 'package:http/http.dart' as http;
 
-import 'package:crew_app/models/complete_job_model.dart';
-import 'package:crew_app/providers/base_provider.dart';
+// abstract class BaseProvider {
+//   final http.Client httpClient;
 
-class JobProvider extends BaseProvider {
+//   BaseProvider(this.httpClient);
 
-  Future<CompleteJob?> fetchJobSummary({required String jobId}) async {
-    httpClient.defaultDecoder = (map) {
-      if (map is Map<String, dynamic> && map.containsKey('data')) {
-        return CompleteJob.fromJson(map['data']);
-      }
-      defaultDecoderWhenError(map);
-      return null;
-    };
-    final response = await get('/app-jobs/summary/$jobId',);
-    return response.body;
-  }
-}
+//   Future<http.Response> get(String endpoint,
+//       {Map<String, dynamic>? query}) async {
+//     final uri = Uri.parse('https://yourapi.com$endpoint')
+//         .replace(queryParameters: query);
+//     return await httpClient.get(uri);
+//   }
+// }
