@@ -26,7 +26,7 @@ class LoginController extends BaseController
         final box = GetStorage();
         Constants.user = user;
         Constants.token = user.authToken;
-        box.write('name', user.toJson());
+        box.write('username', user.toJson());
         box.write('token', user.authToken);
         Get.offAllNamed(Routes.home);
       }

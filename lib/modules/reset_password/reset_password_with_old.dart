@@ -142,16 +142,16 @@ class ResetPasswordWithOld extends GetView<AccountController> {
                       padding: const EdgeInsets.all(0),
                       icon: controller.showRepeatPassword.value
                           ? const Icon(
-                        Icons.visibility_off,
-                        color: ColorName.blue3,
-                      )
+                              Icons.visibility_off,
+                              color: ColorName.blue3,
+                            )
                           : const Icon(
-                        Icons.visibility,
-                        color: Colors.grey,
-                      ),
+                              Icons.visibility,
+                              color: Colors.grey,
+                            ),
                       onPressed: () {
                         controller.showRepeatPassword.value =
-                        !controller.showRepeatPassword.value;
+                            !controller.showRepeatPassword.value;
                       },
                     ),
                     validator: (String? s) {

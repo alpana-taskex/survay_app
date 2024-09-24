@@ -1,6 +1,7 @@
 import 'package:crew_app/components/button_input.dart';
 import 'package:crew_app/components/custom_input_widgets.dart';
 import 'package:crew_app/components/frequent_widgets.dart';
+import 'package:crew_app/components/validators.dart';
 import 'package:crew_app/gen/colors.gen.dart';
 import 'package:crew_app/modules/login/login_controller.dart';
 import 'package:crew_app/routes/app_pages.dart';
@@ -12,7 +13,6 @@ class Login extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    // Get screen width and height using MediaQuery
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
 
@@ -61,11 +61,11 @@ class Login extends GetView<LoginController> {
                   height: 48,
                   textInputType: TextInputType.emailAddress,
                   autofillHints: const [AutofillHints.email],
-                  label: 'Enter Device Name',
+                  label: 'username',
                   onChanged: (String s) {
                     controller.Name = s;
                   },
-                  // validator: emailValidatorNotEmpty,
+                  validator: emailValidatorNotEmpty,
                 ),
                 vPad24,
                 Obx(

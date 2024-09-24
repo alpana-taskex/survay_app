@@ -1,5 +1,6 @@
 import 'package:crew_app/gen/assets.gen.dart';
 import 'package:crew_app/gen/colors.gen.dart';
+import 'package:crew_app/modules/Add%20Survey/addsurvey.dart';
 import 'package:crew_app/widgets/bottombar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -100,7 +101,9 @@ class Dashboard extends GetView {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(() => const AddSurveyScreen());
+                        },
                         icon: const Icon(
                           Icons.add,
                           color: Colors.white,
