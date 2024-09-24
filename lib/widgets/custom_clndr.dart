@@ -8,7 +8,8 @@ class CustomCalendar extends StatefulWidget {
       selectedDates; // Changed to RxList to support multiple dates
   final Function(DateTime) onDateSelected;
 
-  const CustomCalendar({super.key,
+  const CustomCalendar({
+    super.key,
     required this.selectedDates,
     required this.onDateSelected,
   });
@@ -30,7 +31,7 @@ class CustomCalendarState extends State<CustomCalendar> {
   Widget build(BuildContext context) {
     return Obx(() {
       // Calculate the date based on the current month index
-      DateTime monthDate = _getMonthDate(_currentMonthIndex.value - 1);
+      _getMonthDate(_currentMonthIndex.value - 1);
 
       return Column(
         children: [

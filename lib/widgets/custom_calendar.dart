@@ -21,13 +21,11 @@ class CustomCalendarWidget extends StatefulWidget {
 
 class _CustomCalendarWidgetState extends State<CustomCalendarWidget> {
   late PageController _pageController;
-  late DateTime _currentMonth;
   DateTime? selectedDate;
 
   @override
   void initState() {
     super.initState();
-    _currentMonth = DateTime.now();
     _pageController = PageController(initialPage: 0);
     selectedDate = DateTime.now();
     widget.onDateSelected(selectedDate!);
@@ -47,8 +45,11 @@ class _CustomCalendarWidgetState extends State<CustomCalendarWidget> {
   }
 
   List<DateTime> _getDaysInWeek(DateTime week) {
-    return List.generate(7, (index) =>
-        week.subtract(Duration(days: week.weekday - 1)).add(Duration(days: index)));
+    return List.generate(
+        7,
+        (index) => week
+            .subtract(Duration(days: week.weekday - 1))
+            .add(Duration(days: index)));
   }
 
   @override
@@ -58,12 +59,11 @@ class _CustomCalendarWidgetState extends State<CustomCalendarWidget> {
       child: PageView.builder(
         controller: _pageController,
         onPageChanged: (int page) {
-          setState(() {
-            _currentMonth = DateTime.now().add(Duration(days: 7 * page));
-          });
+          setState(() {});
         },
         itemBuilder: (context, index) {
-          final weekStart = DateTime.now().add(Duration(days: 7 * index - DateTime.now().weekday + 1));
+          final weekStart = DateTime.now()
+              .add(Duration(days: 7 * index - DateTime.now().weekday + 1));
           final weekDates = _getDaysInWeek(weekStart);
 
           return Row(
@@ -85,9 +85,11 @@ class _CustomCalendarWidgetState extends State<CustomCalendarWidget> {
                 child: GestureDetector(
                   onTap: () => onDateTap(date),
                   child: Container(
-                    margin: const EdgeInsets.fromLTRB(2,0,2,0),
+                    margin: const EdgeInsets.fromLTRB(2, 0, 2, 0),
                     decoration: BoxDecoration(
-                      color: (isSelected && widget.showHighlight) ? ColorName.blue4 : Colors.transparent,
+                      color: (isSelected && widget.showHighlight)
+                          ? ColorName.blue4
+                          : Colors.transparent,
                       borderRadius: BorderRadius.circular(28),
                       border: (isCurrentDate && widget.showHighlight)
                           ? Border.all(color: ColorName.blue4, width: 2)
@@ -99,14 +101,18 @@ class _CustomCalendarWidgetState extends State<CustomCalendarWidget> {
                         Text(
                           dayName,
                           style: Get.textTheme.bodySmall!.copyWith(
-                            color: (isSelected && widget.showHighlight) ? Colors.white : Colors.black54,
+                            color: (isSelected && widget.showHighlight)
+                                ? Colors.white
+                                : Colors.black54,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                         Text(
                           dayNumber,
                           style: Get.textTheme.bodySmall!.copyWith(
-                            color: (isSelected && widget.showHighlight) ? Colors.white : Colors.black,
+                            color: (isSelected && widget.showHighlight)
+                                ? Colors.white
+                                : Colors.black,
                             fontWeight: FontWeight.w500,
                           ),
                         ),

@@ -1,4 +1,3 @@
-import 'package:crew_app/gen/assets.gen.dart';
 import 'package:crew_app/gen/colors.gen.dart';
 import 'package:crew_app/modules/language/language_controller.dart';
 import 'package:crew_app/widgets/navbar.dart';
@@ -48,50 +47,50 @@ class Language extends GetView<LanguageController> {
 
   Widget _buildLanguageCard(String language, String letterSample) {
     return Obx(() => InkWell(
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
-      onTap: () => controller.setLanguage(language),
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(18, 0, 0, 16),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: controller.selectedLanguage.value == language
-                ? ColorName.blue3
-                : ColorName.gray11,
-            width: 1,
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          onTap: () => controller.setLanguage(language),
+          child: Container(
+            padding: const EdgeInsets.fromLTRB(18, 0, 0, 16),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: controller.selectedLanguage.value == language
+                    ? ColorName.blue3
+                    : ColorName.gray11,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  letterSample,
+                  style: Get.textTheme.displayLarge!.copyWith(
+                    color: controller.selectedLanguage.value == language
+                        ? ColorName.blue3
+                        : ColorName.black,
+                    fontWeight: controller.selectedLanguage.value == language
+                        ? FontWeight.w500
+                        : FontWeight.normal,
+                    letterSpacing: 0,
+                  ),
+                ),
+                Text(
+                  language,
+                  style: Get.textTheme.bodyMedium!.copyWith(
+                    color: controller.selectedLanguage.value == language
+                        ? ColorName.blue3
+                        : ColorName.black,
+                    fontWeight: FontWeight.w500,
+                    height: 2.2,
+                    letterSpacing: 0,
+                  ),
+                ),
+              ],
+            ),
           ),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              letterSample,
-              style: Get.textTheme.displayLarge!.copyWith(
-                color: controller.selectedLanguage.value == language
-                    ? ColorName.blue3
-                    : ColorName.black,
-                fontWeight: controller.selectedLanguage.value == language
-                    ? FontWeight.w500
-                    : FontWeight.normal,
-                letterSpacing: 0,
-              ),
-            ),
-            Text(
-              language,
-              style: Get.textTheme.bodyMedium!.copyWith(
-                color: controller.selectedLanguage.value == language
-                    ? ColorName.blue3
-                    : ColorName.black,
-                fontWeight: FontWeight.w500,
-                height: 2.2,
-                letterSpacing: 0,
-              ),
-            ),
-          ],
-        ),
-      ),
-    ));
+        ));
   }
 }

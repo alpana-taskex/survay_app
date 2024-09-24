@@ -1,7 +1,6 @@
 import 'package:crew_app/gen/assets.gen.dart';
 import 'package:crew_app/gen/colors.gen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class AddSurveyScreen extends StatelessWidget {
@@ -9,7 +8,6 @@ class AddSurveyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Custom decoration for text fields
     final InputDecoration customDecoration = InputDecoration(
       filled: true,
       fillColor: Colors.white,
